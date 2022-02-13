@@ -1,2 +1,2 @@
 all:
-  gcc -o hello Chess.html
+  gcc -Wall -Werror -o chess.c
