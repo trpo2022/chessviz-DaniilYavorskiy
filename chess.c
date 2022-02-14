@@ -1,27 +1,33 @@
 #include <stdio.h>
 
-int main () {
+int main () 
+{
 	char mass[9][9];
 	for(int i = 0; i < 9; i++)
-		for(int j = 0; j < 9; j++) {
+		for(int j = 0; j < 9; j++) 
+		{
 			mass[i][j] = 49;
-			if (mass[i][j] == mass[8][0]) {
+			if (mass[i][j] == mass[8][0]) 
+			{
 				mass[i][j] = 0;
 			}
 		}
 
 	for(int i = 2; i < 6; i++)
-		for(int j = 1; j < 9; j++) {
+		for(int j = 1; j < 9; j++) 
+		{
 			mass[i][j] = 32;
 		}
 
 	for(int i = 1; i < 2; i++)
-		for(int j = 1; j < 9; j++) {
+		for(int j = 1; j < 9; j++) 
+		{
 			mass[i][j] = 112;
 		}
 
 	for(int i = 0; i < 9; i++)
-		for(int j = 0; j < 9; j++) {
+		for(int j = 0; j < 9; j++) 
+		{
 			mass[6][0] = 50;
 			mass[5][0] = 51;
 			mass[4][0] = 52;
@@ -32,7 +38,8 @@ int main () {
 		}
 
 	for(int i = 0; i < 9; i++)
-		for(int j = 0; j < 9; j++) {
+		for(int j = 0; j < 9; j++) 
+		{
 			mass[8][1] = 97;
 			mass[8][2] = 98;
 			mass[8][3] = 99;
@@ -44,7 +51,8 @@ int main () {
 		}
 
 	for(int i = 0; i < 9; i++)
-		for(int j = 0; j < 9; j++) {
+		for(int j = 0; j < 9; j++) 
+		{
 			mass[7][1] = mass[7][8] = 82;
 			mass[7][2] = mass[7][7] = 78;
 			mass[7][3] = mass[7][6] = 66;
@@ -53,7 +61,8 @@ int main () {
 		}
 
 	for(int i = 0; i < 9; i++)
-		for(int j = 0; j < 9; j++) {
+		for(int j = 0; j < 9; j++) 
+		{
 			mass[0][1] = mass[0][8] = 114;
 			mass[0][2] = mass[0][7] = 110;
 			mass[0][3] = mass[0][6] = 98;
@@ -62,12 +71,15 @@ int main () {
 		}
 
 	for(int i = 6; i < 7; i++)
-		for(int j = 1; j < 9; j++) {
+		for(int j = 1; j < 9; j++) 
+		{
 			mass[i][j] = 80;
 		}
 
-	for(int i = 0; i < 9; i++) {
-		for(int j = 0; j < 9; j++) {
+	for(int i = 0; i < 9; i++) 
+	{
+		for(int j = 0; j < 9; j++) 
+		{
 			printf("%c ", mass[i][j]);
 		}
 		printf("\n");
