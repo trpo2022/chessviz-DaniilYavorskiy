@@ -1,2 +1,2 @@
 all:
-  gcc -Wall -Werror -o chess chess.cь
+  gcc -Wall -Werror -o chess chess.c
