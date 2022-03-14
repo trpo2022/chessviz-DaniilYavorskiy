@@ -10,7 +10,7 @@ chess-start: $(CHESS)
 $(CHESS): obj/src/chess/chess.o obj/src/libchessviz/libchess.a
 	g++ $(CFLAGS) -o $@ $^
 
-obj/src/chess/chess.o: src/chess/chess.cpp
+obj/src/chess/chess.o: src/chessviz/chess.c
 	g++ -c -I src $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 obj/src/libchessviz/libchessviz.a: obj/src/libchessviz/chess.o
