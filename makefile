@@ -1,27 +1,25 @@
-CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -MMD
-CHESS = bin/chess 
-
-all: chess-start
-
-chess-start: $(CHESS)
-	./$(CHESS)
-
-$(CHESS): obj/src/chess/chess.o obj/src/libchessviz/libchess.a
-	g++ $(CFLAGS) -o $@ $^
-
-obj/src/chess/chess.o: src/chessviz/chess.c
-	g++ -c -I src $(CFLAGS) $(CPPFLAGS) -o $@ $<
-
-obj/src/libchessviz/libchessviz.a: obj/src/libchessviz/chess.o
-	ar rcs $@ $^
-
-obj/src/libchessviz/chessviz.o: src/libchessviz/chess.cpp
-	g++ -c -I src $(CFLAGS) $(CPPFLAGS) -o $@ $<
-
-.PHONY: all clean
-
+CC=gcc 
+CFLAGS=-Wall -Werror -c
+SOURCE=src/chessviz/
+LIBSOURCE=src/libchessviz/
+INCLUDEPATH=-I src
+all: chessviz clean
+chessviz: main.o libchessviz.a
+	$(CC) -o chessviz main.o libchessviz.a 
+libchessviz.a: Move.o Doska_v_nachale.o Proverka_vvedennogo.o Vivod_doski.o Vzatie.o
+	ar rcs libchessviz.a Dvizenie.o Doska_v_nachale.o Proverka_vvedennogo.o Vivod_doski.o Vzatie.o
+main.o: 
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(SOURCE)main.c
+Move.o: 
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)Move.c
+Doska_v_nachale.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)Doska_v_nachale.c
+Proverka_vvedennogo.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)Proverka_vvedennogo.c
+Vivod_doski.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)Vivod_doski.c
+Vzatie.o:
+	$(CC) $(CFLAGS) $(INCLUDEPATH) $(LIBSOURCE)Vzatie.c
 clean:
-	rm obj/src/libchessviz/*.[oad] obj/src/chess/*.[od] $(CHESS)
-
--include obj/src/chess/chess.d obj/src/libchessviz/chess.d
+	rm -rf *.o *.a
+.PHONY: chessviz clean
