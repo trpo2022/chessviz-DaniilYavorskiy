@@ -1,2 +1,5 @@
-chess
 *.exe
+*.swp
+*.out
+*main
+*chessviz

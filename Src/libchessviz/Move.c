@@ -4,7 +4,7 @@
 
 char doska[8][8];
 
-int Dvizenie(int x_start, int x_end, int y_start, int y_end, int hod, int kod_sbros)
+int Move(int x_start, int x_end, int y_start, int y_end, int hod, int kod_sbros)
 {
 	int vozvrat_kod=kod_sbros;
 	if (hod==0)

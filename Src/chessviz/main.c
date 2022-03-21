@@ -10,7 +10,7 @@ int main()
 	while (who_hodit!=0)
 	{
 		Vivod_doski();
- who_hodit=Proverka_vvedennogo(who_hodit);
+ who_hodit=Proverka_vvoda(who_hodit);
 		if(who_hodit!=0)
 			who_hodit++;
 		printf("\n");	
